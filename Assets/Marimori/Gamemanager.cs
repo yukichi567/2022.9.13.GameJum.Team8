@@ -5,15 +5,13 @@ using UnityEngine. UI;
 
 public class Gamemanager : MonoBehaviour
 {
-
     [SerializeField]
     [Header("プレイ時間の初期値")]
     private float _GameOverTime = 60f;
 
-
     [SerializeField]
     [Header("時間表示")]
-     Text _timerlimit;
+    Text _timerlimit;
 
     [SerializeField]
     [Header("スコア")]
@@ -22,7 +20,6 @@ public class Gamemanager : MonoBehaviour
     [SerializeField]
     [Header("スコア表示")]
     Text _Point;
-
 
     public float _time;
     public float _count;
@@ -43,8 +40,9 @@ public class Gamemanager : MonoBehaviour
         _timerlimit.text = $"{_count.ToString("F1")}";
     }
     
-    void AddScore(int _score)
+    void AddScore(int score)
     {
-
+        _score += score;
+        _Point.text = $"{_score.ToString("d5")}";
     }
 }
