@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public Vector3 _position;
-    public Vector3 _screenToWorldPointPosition;
     public static int _playerHp = 3;
-    [SerializeField] GameObject _bullet;
-    [SerializeField] GameObject _muzzle;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject _bulletPrefab;
+    [SerializeField] float _intarval;
+    float _timer;
 
-    // Update is called once per frame
     void Update()
     {
-        _position = Input.mousePosition;
-        _screenToWorldPointPosition = Camera.main.ScreenToWorldPoint(_position);
-        _muzzle.transform.position = _screenToWorldPointPosition;
+        _timer += Time.deltaTime;
+        if (Input.GetMouseButton(0) && _timer > _intarval)
+        {
+            if (_timer > _intarval)
+            {
+                _timer = 0;
+                GameObject _bullet = Instantiate(_bulletPrefab);
+                _bullet.transform.position = transform.position;
+                Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Vector3 _worldDir = _ray.direction;
+                _bullet.GetComponent<BulletScript>().Shoot(_worldDir.normalized * BulletScript._speed);
+            }
+
+        }
     }
 }
