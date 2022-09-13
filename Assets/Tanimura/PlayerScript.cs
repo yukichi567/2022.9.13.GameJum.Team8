@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Vector3 _screenToWorldPointPosition;
     public static int _playerHp = 3;
     [SerializeField] GameObject _bullet;
+    [SerializeField] GameObject _muzzle;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class PlayerScript : MonoBehaviour
     {
         _position = Input.mousePosition;
         _screenToWorldPointPosition = Camera.main.ScreenToWorldPoint(_position);
-        _bullet.transform.position = _screenToWorldPointPosition;
+        _muzzle.transform.position = _screenToWorldPointPosition;
     }
 }
