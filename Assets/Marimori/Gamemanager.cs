@@ -15,46 +15,75 @@ public class Gamemanager : MonoBehaviour
 
     [SerializeField]
     [Header("スコア")]
-    public float _score;
+    public static float _score;
 
     [SerializeField]
     [Header("スコア表示")]
-    Text _Point;
+    public static Text _point;
+    [SerializeField]Text _resultText;
 
     public float _time;
     public float _count;
     public float _timelimit = 60;
     bool _isGame;
-    //public _HP;
+
+
+    [Header("クリア、ゲームオーバー画像")]
+    [SerializeField]
+    GameObject _gameOver;
+    [SerializeField]
+    GameObject _gameClear;
+
+    //[Header("HPゲージ")]
+    //[SerializeField]
+    //GameObject _HP;
+    //[SerializeField]
+    //GameObject _HPMax;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _isGame = true;
-        //_HP = GameObject.FindObjectOfType<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+
         if (_isGame)
         {
             _time += Time.deltaTime;
             _count = _GameOverTime - _time;
             _timerlimit.text = $"{_count.ToString("F1")}";
+            _point.text = $"{_score.ToString("00000")}";
+
+
             if (_count <= 0 )
             {
                 _isGame = false;
-
+                _gameClear.gameObject.SetActive(true);
             }
+
+            if (PlayerScript._playerHp <= 0)
+            {
+                _isGame = false;
+                _gameOver.gameObject.SetActive(true);
+            }
+
+        }
+
+        else if(_isGame == false)
+        {
+            _resultText.text = $"{_score.ToString("00000")}";
         }
         
     }
 
-    void AddScore(int score)
+    public static void AddScore(int score)
     {
         _score += score;
-        _Point.text = $"{_score.ToString("d5")}";
+        _point.text = $"{_score.ToString("00000")}";
     }
 }
