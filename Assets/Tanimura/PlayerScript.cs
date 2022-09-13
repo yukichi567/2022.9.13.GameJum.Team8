@@ -25,5 +25,14 @@ public class PlayerScript : MonoBehaviour
             }
 
         }
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            _playerHp -= 1;
+            Destroy(collision.gameObject);
+        }
     }
 }
