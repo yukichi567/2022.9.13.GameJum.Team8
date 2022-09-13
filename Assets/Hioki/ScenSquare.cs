@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenSquare : MonoBehaviour
 {
+    /// <summary>•Ï‚¦‚½‚¢ƒV[ƒ“‚Ì–¼‘O</summary>
     [SerializeField] string _changeScene;
 
     public void LoadScenes()
