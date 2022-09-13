@@ -51,8 +51,6 @@ public class Gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (_isGame)
         {
             _time += Time.deltaTime;
