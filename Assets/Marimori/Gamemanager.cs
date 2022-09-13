@@ -17,9 +17,10 @@ public class Gamemanager : MonoBehaviour
     [Header("スコア")]
     public static float _score;
 
-    [SerializeField]
+    
     [Header("スコア表示")]
-    public static Text _point;
+    [SerializeField]public static Text _point;
+
     [SerializeField]Text _resultText;
 
     public float _time;
@@ -34,11 +35,11 @@ public class Gamemanager : MonoBehaviour
     [SerializeField]
     GameObject _gameClear;
 
-    //[Header("HPゲージ")]
-    //[SerializeField]
-    //GameObject _HP;
-    //[SerializeField]
-    //GameObject _HPMax;
+    [Header("HPゲージ")]
+    [SerializeField]
+    GameObject _HP;
+    [SerializeField]
+    GameObject _HPMax;
 
 
     // Start is called before the first frame update
@@ -58,7 +59,8 @@ public class Gamemanager : MonoBehaviour
             _count = _GameOverTime - _time;
             _timerlimit.text = $"{_count.ToString("F1")}";
             _point.text = $"{_score.ToString("00000")}";
-
+            _HP.gameObject.SetActive(true);
+            _HPMax.gameObject.SetActive(true);
 
             if (_count <= 0 )
             {
