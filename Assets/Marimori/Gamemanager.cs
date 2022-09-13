@@ -25,24 +25,28 @@ public class Gamemanager : MonoBehaviour
     public float _count;
     public float _timelimit = 60;
     bool _isGame;
+    //public _HP;
 
     // Start is called before the first frame update
     void Start()
     {
         _isGame = true;
+        //_HP = GameObject.FindObjectOfType<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (_isGame)
         {
             _time += Time.deltaTime;
             _count = _GameOverTime - _time;
             _timerlimit.text = $"{_count.ToString("F1")}";
-            if (_count <= 0)
+            if (_count <= 0 )
             {
                 _isGame = false;
+
             }
         }
         
