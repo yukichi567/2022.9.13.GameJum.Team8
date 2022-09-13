@@ -21,7 +21,9 @@ public class BulletGenerator : MonoBehaviour
         {
             _timer = 0;
             GameObject _bullet = Instantiate(_bulletPrefab);
-            _bullet.GetComponent<BulletScript>().Shoot(new Vector3(0, 200, 2000));
+            Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 _worldDir = _ray.direction;
+            _bullet.GetComponent<BulletScript>().Shoot(_worldDir.normalized *BulletScript._speed*10);
         }
     }
 }
