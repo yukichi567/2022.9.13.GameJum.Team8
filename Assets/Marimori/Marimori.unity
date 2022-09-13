@@ -469,7 +469,7 @@ MonoBehaviour:
   _Point: {fileID: 818531136}
   _time: 0
   _count: 0
-  _timelimit: 60
+  _timelimit: 0
 --- !u!4 &861766704
 Transform:
   m_ObjectHideFlags: 0
