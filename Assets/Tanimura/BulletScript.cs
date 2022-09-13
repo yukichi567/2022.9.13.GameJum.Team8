@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public static int _speed = 200;
     public void Shoot(Vector3 dir)
     {
         GetComponent<Rigidbody>().AddForce(dir);
@@ -11,7 +12,7 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Shoot(new Vector3(0, 200, 2000));
+        Shoot(new Vector3(0, _speed, _speed*10));
     }
 
     // Update is called once per frame
