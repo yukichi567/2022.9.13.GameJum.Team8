@@ -10,6 +10,11 @@ public class PowerUpItem : MonoBehaviour
     [SerializeField] bool _isBulletvelocity;
     [Header("間隔")]
     [SerializeField] bool _isinterval;
+    [Header("Hp")]
+    [SerializeField] bool _isHp;
+
+    [Header("減らす秒数")]
+    [SerializeField] float _time;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,14 +23,17 @@ public class PowerUpItem : MonoBehaviour
             //弾速
             if (_isBulletvelocity)
             {
-                //弾についてるスクリプトをいじる
-
+                BulletScript._speed *= 2;
             }
             //インターバル変更
             else if(_isinterval)
             {
-                //プレイヤーについてるスクリプトをいじる
-
+                BulletGenerator._interval -= _time;
+            }
+            //HP
+            else if(_isHp)
+            {
+                PlayerScript._playerHp++;
             }
         }
     }
