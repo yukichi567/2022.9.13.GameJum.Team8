@@ -8,7 +8,7 @@ public class Create : MonoBehaviour
     [SerializeField] GameObject[] _objectPrefab;
     BoxCollider _bc;
     float _timer;
-    [SerializeField]float _intarval;
+    [SerializeField]public static float _intarval = 1f;
     float _x;
     //float _y;
     int n;
@@ -22,15 +22,18 @@ public class Create : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _timer += Time.deltaTime;
-        _x = Random.Range((-_bc.size.x) / 2, (_bc.size.x) / 2);
-        //_y = Random.Range((-_bc.size.y) / 2, (_bc.size.y) / 2);
-        if (_timer >= _intarval)
+        if (Gamemanager._isGame)
         {
-            n = Random.Range(0, _objectPrefab.Length);
-            GameObject Enemy = Instantiate(_objectPrefab[n]);
-            Enemy.transform.position = new Vector3(_x, _bc.transform.position.y, _bc.transform.position.z);
-            _timer = 0;
+            _timer += Time.deltaTime;
+            _x = Random.Range((-_bc.size.x) / 2, (_bc.size.x) / 2);
+            //_y = Random.Range((-_bc.size.y) / 2, (_bc.size.y) / 2);
+            if (_timer >= _intarval)
+            {
+                n = Random.Range(0, _objectPrefab.Length);
+                GameObject Enemy = Instantiate(_objectPrefab[n]);
+                Enemy.transform.position = new Vector3(_x, _bc.transform.position.y, _bc.transform.position.z);
+                _timer = 0;
+            }
         }
     }
 }

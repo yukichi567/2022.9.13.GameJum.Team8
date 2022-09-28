@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject[] _itemPrefab;
     GameObject _player;
     NavMeshAgent _nav;
+    [SerializeField] int _score;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +31,9 @@ public class Enemy : MonoBehaviour
     IEnumerator BulletHit(int N, Collision collision)
     {
         Instantiate(_itemPrefab[N], transform.position, transform.rotation);
+        Gamemanager.AddScore(_score);
         yield return new WaitForSeconds(0.5f);
-        Destroy(collision.gameObject);
+        //Destroy(collision.gameObject);
         Destroy(gameObject);
     }
 }

@@ -16,6 +16,8 @@ public class PowerUpItem : MonoBehaviour
     [Header("減らす秒数")]
     [SerializeField] float _time;
 
+    [SerializeField] float _maxSpeed;
+    [SerializeField] float _maxIntarval;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == _tagName)
@@ -23,17 +25,26 @@ public class PowerUpItem : MonoBehaviour
             //弾速
             if (_isBulletvelocity)
             {
-                BulletScript._speed *= 2;
+                if (BulletScript._speed <= _maxSpeed)
+                {
+                    BulletScript._speed *= 1.2f;
+                }
+                Destroy(gameObject);
             }
             //インターバル変更
             else if(_isinterval)
             {
-                BulletGenerator._interval -= _time;
+                if (PlayerScript._intarval >= 0.1f)
+                {
+                    PlayerScript._intarval -= _time;
+                }
+                Destroy(gameObject);
             }
             //HP
             else if(_isHp)
             {
                 PlayerScript._playerHp++;
+                Destroy(gameObject);
             }
         }
     }
