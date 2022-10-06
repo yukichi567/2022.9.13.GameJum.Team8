@@ -8,7 +8,12 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] public static float _intarval = 1f;
     float _timer;
+    int y = 0;
 
+    void Start()
+    {
+        
+    }
     void Update()
     {
         if (Gamemanager._isGame)
@@ -26,6 +31,18 @@ public class PlayerScript : MonoBehaviour
                     _bullet.GetComponent<BulletScript>().Shoot(_worldDir.normalized * BulletScript._speed);
                 }
 
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                Debug.Log("A");
+                y -= 90;
+                gameObject.transform.rotation = Quaternion.Euler(0f, y, 0f);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                Debug.Log("D");
+                y += 90;
+                gameObject.transform.rotation = Quaternion.Euler(0f, y, 0f);
             }
         }
 
