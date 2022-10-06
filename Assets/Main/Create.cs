@@ -25,8 +25,8 @@ public class Create : MonoBehaviour
         if (Gamemanager._isGame)
         {
             _timer += Time.deltaTime;
-            _x = Random.Range((-_bc.size.x) / 2, (_bc.size.x) / 2);
-            //_y = Random.Range((-_bc.size.y) / 2, (_bc.size.y) / 2);
+            //_x = Random.Range((-_bc.size.x) / 2, (_bc.size.x) / 2);
+            ////_y = Random.Range((-_bc.size.y) / 2, (_bc.size.y) / 2);
             if (_timer >= _intarval)
             {
                 int position = Random.Range(0, _createposition.Length);

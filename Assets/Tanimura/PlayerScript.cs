@@ -36,13 +36,13 @@ public class PlayerScript : MonoBehaviour
             {
                 Debug.Log("A");
                 y -= 90;
-                gameObject.transform.rotation = Quaternion.Euler(0f, y, 0f);
+                transform.rotation = Quaternion.Euler(0f, y, 0f);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 Debug.Log("D");
                 y += 90;
-                gameObject.transform.rotation = Quaternion.Euler(0f, y, 0f);
+                transform.rotation = Quaternion.Euler(0f, y, 0f);
             }
         }
 

@@ -23,7 +23,7 @@ public class BulletGenerator : MonoBehaviour
             GameObject _bullet = Instantiate(_bulletPrefab);
             Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 _worldDir = _ray.direction;
-            _bullet.GetComponent<BulletScript>().Shoot(_worldDir.normalized *BulletScript._speed*10);
+            _bullet.GetComponent<BulletScript>().Shoot(_worldDir.normalized * BulletScript._speed * 10);
         }
     }
 }
