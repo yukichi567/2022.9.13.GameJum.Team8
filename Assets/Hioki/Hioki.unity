@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040994477, g: 0.00022455605, b: 0.000000058353148, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040926277, g: 0.00022395633, b: 0.000000057412233, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b28f0587ea0764399d029d22a63cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changeScene: GameSecne
+  _changeScene: Tanimura
 --- !u!114 &1288334813
 MonoBehaviour:
   m_ObjectHideFlags: 0

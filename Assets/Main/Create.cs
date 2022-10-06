@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Create : MonoBehaviour
 {
+    [SerializeField] Transform[] _createposition;
     [SerializeField] GameObject[] _objectPrefab;
     BoxCollider _bc;
     float _timer;
@@ -12,6 +11,7 @@ public class Create : MonoBehaviour
     float _x;
     //float _y;
     int n;
+    int posotion;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +29,11 @@ public class Create : MonoBehaviour
             //_y = Random.Range((-_bc.size.y) / 2, (_bc.size.y) / 2);
             if (_timer >= _intarval)
             {
-                n = Random.Range(0, _objectPrefab.Length);
+                int position = Random.Range(0, _createposition.Length);
+                int n = Random.Range(0, _objectPrefab.Length);
                 GameObject Enemy = Instantiate(_objectPrefab[n]);
-                Enemy.transform.position = new Vector3(_x, _bc.transform.position.y, _bc.transform.position.z);
+                Enemy.transform.position = _createposition[position].position;
+                //Enemy.transform.position = new Vector3(_x, _bc.transform.position.y, _bc.transform.position.z);
                 _timer = 0;
             }
         }
