@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b28f0587ea0764399d029d22a63cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changeScene: Tanimura
+  _changeScene: GameSecne
 --- !u!114 &1288334813
 MonoBehaviour:
   m_ObjectHideFlags: 0

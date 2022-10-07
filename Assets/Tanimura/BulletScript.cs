@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public static float _speed = 2000;
+    public static float _speed = 20;
     public void Shoot(Vector3 dir)
     {
-        GetComponent<Rigidbody>().AddForce(dir);
+        //GetComponent<Rigidbody>().AddForce(dir);
+        GetComponent<Rigidbody>().velocity = dir;
     }
     // Start is called before the first frame update
     //void Start()

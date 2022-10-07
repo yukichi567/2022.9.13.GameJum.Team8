@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Gamemanager : MonoBehaviour
     
     [Header("スコア")]
     [SerializeField]
-    public static float _score;
+    public static int _score;
 
     
     [Header("スコア表示")]
@@ -81,10 +82,11 @@ public class Gamemanager : MonoBehaviour
 
         }
 
-        else if(!_isGame)
-        {
-            _resultText.text = $"{_score.ToString("00000")}";
-        }
+        //else if(!_isGame)
+        //{
+        //    //_resultText.text = $"{_score.ToString("00000")}";
+        //    _resultText.DOCounter(0, _score, 1f);
+        //}
         
     }
 
