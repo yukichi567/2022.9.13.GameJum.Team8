@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpItem : MonoBehaviour
 {
     /// <summary>弾のタグの名前</summary>
     [SerializeField] string _tagName;
+    [SerializeField] GameObject _heartPrefab;
+    GameObject _heartPanel;
+    Gamemanager _gamemanager;
     [Header("弾速")]
     [SerializeField] bool _isBulletvelocity;
     [Header("間隔")]
@@ -18,41 +22,15 @@ public class PowerUpItem : MonoBehaviour
 
     [SerializeField] float _maxSpeed;
     [SerializeField] float _maxbullet;
+    [SerializeField] int _maxHp;
+    [SerializeField] int _score;
     PlayerScript _player;
     private void Start()
     {
         _player = GameObject.FindObjectOfType<PlayerScript>();
+        _gamemanager = GameObject.FindObjectOfType<Gamemanager>();
+        _heartPanel = GameObject.Find("HeartPanel");
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == _tagName)
-    //    {
-    //        //弾速
-    //        if (_isBulletvelocity)
-    //        {
-    //            if (BulletScript._speed <= _maxSpeed)
-    //            {
-    //                BulletScript._speed *= 1.2f;
-    //            }
-    //            Destroy(gameObject);
-    //        }
-    //        //インターバル変更
-    //        else if (_isinterval)
-    //        {
-    //            if (PlayerScript._intarval >= _maxIntarval)
-    //            {
-    //                PlayerScript._intarval -= _time;
-    //            }
-    //            Destroy(gameObject);
-    //        }
-    //        //HP
-    //        else if (_isHp)
-    //        {
-    //            PlayerScript._playerHp++;
-    //            Destroy(gameObject);
-    //        }
-    //    }
-    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == _tagName)
@@ -64,6 +42,10 @@ public class PowerUpItem : MonoBehaviour
                 {
                     BulletScript._speed *= 1.2f;
                 }
+                else
+                {
+                    Gamemanager.AddScore(_score);
+                }
                 Destroy(gameObject);
             }
             //インターバル変更
@@ -73,12 +55,23 @@ public class PowerUpItem : MonoBehaviour
                 {
                     _player._maxBullet += 10 ;
                 }
+                else
+                {
+                    Gamemanager.AddScore(_score);
+                }
                 Destroy(gameObject);
             }
             //HP
             else if (_isHp)
             {
-                PlayerScript._playerHp++;
+                if (PlayerScript._playerHp <= _maxHp)
+                {
+                    PlayerScript._playerHp++; 
+                }
+                else
+                {
+                    Gamemanager.AddScore(_score);
+                }
                 Destroy(gameObject);
             }
         }

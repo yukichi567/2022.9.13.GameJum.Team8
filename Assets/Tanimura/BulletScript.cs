@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public static float _speed = 20;
+    public static float _speed = 50;
     public void Shoot(Vector3 dir)
     {
         //GetComponent<Rigidbody>().AddForce(dir);

@@ -37,12 +37,12 @@ public class Gamemanager : MonoBehaviour
     GameObject _gameOver;*/
     [SerializeField]
     GameObject _gameClear;
-
+    [SerializeField]
+    GameObject _main;
+    public List<GameObject> _heartList;
     [Header("HPƒQ[ƒW")]
     [SerializeField]
     Text _HP;
-    //[SerializeField]
-    //GameObject _HPMax;
 
 
     void Start()
@@ -59,9 +59,7 @@ public class Gamemanager : MonoBehaviour
             _repopUp += Time.deltaTime;
             _timerlimit.text = $"{_count.ToString("F1")}";
             _point.text = $"{_score.ToString("00000")}";
-            _HP.text = $"{PlayerScript._playerHp}";
-            //_HP.gameObject.SetActive(true);
-            //_HPMax.gameObject.SetActive(true);
+            _HP.text = $"LIFE:{PlayerScript._playerHp}";
             if(_repopUp >= 5f)
             {
                 Create._intarval -= 0.1f;
@@ -71,23 +69,17 @@ public class Gamemanager : MonoBehaviour
             {
                 _isGame = false;
                 _gameClear.gameObject.SetActive(true);
+                _main.gameObject.SetActive(false);
             }
 
             if (PlayerScript._playerHp <= 0)
             {
                 _isGame = false;
-                // _gameOver.gameObject.SetActive(true);
                 _gameClear.gameObject.SetActive(true);
+                _main.gameObject.SetActive(false);
             }
 
-        }
-
-        //else if(!_isGame)
-        //{
-        //    //_resultText.text = $"{_score.ToString("00000")}";
-        //    _resultText.DOCounter(0, _score, 1f);
-        //}
-        
+        }  
     }
 
     public static void AddScore(int score)

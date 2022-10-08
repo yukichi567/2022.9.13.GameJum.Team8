@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject[] _itemPrefab;
     [SerializeField] Transform _muzzlePosition;
+    [SerializeField] GameObject _effect;
     GameObject _player;
     NavMeshAgent _nav;
     [SerializeField] int _score;
@@ -29,7 +30,11 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator BulletHit(int N, Collision collision)
     {
-        GameObject Item =  Instantiate(_itemPrefab[N], _muzzlePosition.position, transform.rotation);
+        GameObject Item =  Instantiate(_itemPrefab[N]);
+        Item.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        GameObject Effect = Instantiate(_effect);
+        Effect.transform.position = new Vector3(transform.position.x, 3, transform.position.z);
+        Effect.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
         Gamemanager.AddScore(_score);
         yield return new WaitForSeconds(0.1f);
         //Destroy(collision.gameObject);

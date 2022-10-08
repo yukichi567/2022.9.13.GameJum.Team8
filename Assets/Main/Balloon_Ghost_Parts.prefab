@@ -76,8 +76,9 @@ MonoBehaviour:
   - {fileID: 7102088663338473083, guid: 63ccd46b92fea5c41b0679341f2b64ea, type: 3}
   - {fileID: 7102088663338473083, guid: 63ccd46b92fea5c41b0679341f2b64ea, type: 3}
   - {fileID: 9097090718283498654, guid: 83fe5bcfbcd0efa43927aa852a3cf567, type: 3}
-  - {fileID: 8069912775139862794, guid: 231ab47269e78724fb9984c49acd057d, type: 3}
+  - {fileID: 8318528209690679882, guid: be31da25716265341aa6af0b1c5105d6, type: 3}
   _muzzlePosition: {fileID: 7069271891460053852}
+  _effect: {fileID: 6613303123298153995, guid: 7a1a7fdb8eb1242489b97821e9507a74, type: 3}
   _score: 100
 --- !u!54 &5297711474980984036
 Rigidbody:

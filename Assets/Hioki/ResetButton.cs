@@ -9,8 +9,8 @@ public class ResetButton : MonoBehaviour
     {
         Gamemanager._score = 0;
         PlayerScript._playerHp = 3;
-        BulletScript._speed = 20;
-        Create._intarval  = 1f;
-        PlayerScript._intarval = 1f;
+        BulletScript._speed = 50;
+        Create._intarval  = 1.5f;
+        PlayerScript._intarval = 0.1f;
     }
 }

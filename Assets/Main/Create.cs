@@ -4,7 +4,7 @@ public class Create : MonoBehaviour
 {
     [SerializeField] Transform[] _createposition;
     [SerializeField] GameObject[] _objectPrefab;
-    [SerializeField]public static float _intarval = 1.3f;
+    [SerializeField]public static float _intarval = 1.5f;
     BoxCollider _bc;
     float _timer;
     float _x;
